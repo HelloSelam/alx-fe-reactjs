@@ -3,7 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import AddRecipeForm from './components/AddRecipeForm';
-import RecipeList from './components/RecipeList';
+import recipeStore from './components/recipeStore';  
 
 function App() {
   const [count, setCount] = useState(0)
@@ -13,7 +13,7 @@ function App() {
        <div>
         <h1>Recipe Sharing App</h1>
         <AddRecipeForm />
-        <RecipeList />
+        <recipeStore />
       </div>
       <div>
         <a href="https://vite.dev" target="_blank">
@@ -39,4 +39,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
