@@ -13,7 +13,7 @@ function App() {
        <div>
         <h1>Recipe Sharing App</h1>
         <AddRecipeForm />
-        <recipeStore />
+        <RecipeList />
       </div>
       <div>
         <a href="https://vite.dev" target="_blank">
