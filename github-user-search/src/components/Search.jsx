@@ -3,7 +3,7 @@ import { advancedUserSearch } from '../services/githubService';
 
 function Search() {
 
-    const [formData, setFormData] = useState({ username: '', location: '', repos: '' });
+    const [formData, setFormData] = useState({ username: '', location: '', minRepos: '' });
     const [users, setUsers] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
@@ -48,8 +48,8 @@ function Search() {
           placeholder="Location"
         />
         <input
-          name="repos"
-          value={formData.repos}
+          name="minRepos"
+          value={formData.minRepos}
           onChange={handleChange}
           className="w-full border px-3 py-2 rounded"
           type="number"
