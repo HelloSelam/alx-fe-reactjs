@@ -2,6 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import Search from './components/Search';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -10,6 +11,7 @@ function App() {
     <>
       <div>
         <h1>GitHub User Search</h1>
+        <Search />
         <p>Start typing to search for a GitHub user...</p>
       </div>
       <div>
