@@ -1,30 +1,33 @@
 import { useState } from 'react';
+import { fetchUserData } from '../services/githubService';
 import { advancedUserSearch } from '../services/githubService';
 
 function Search() {
-  const [formData, setFormData] = useState({
+
+    const [formData, setFormData] = useState({
     username: '',
     location: '',
     repos: ''
   });
+  
+    const [username, setUsername] = useState('');
+    const [userData, setUserData] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(false);
 
-  const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setError(false);
-    setUsers([]);
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setLoading(true);
+        setError(false);
+        setUserData(null);
 
     try {
-      const data = await advancedUserSearch(formData);
-      setUsers(data.items || []);
+      const data = await fetchUserData(username);
+      setUserData(data);
     } catch (err) {
       setError(true);
     } finally {
