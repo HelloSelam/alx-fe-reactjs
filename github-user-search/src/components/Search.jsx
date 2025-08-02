@@ -20,7 +20,7 @@ function Search() {
 
     try {
       const data = await advancedUserSearch(formData);
-      setUsers([data]);
+      setUsers(data);
     } catch (err) {
       setError(true);
     } finally {
