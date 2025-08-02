@@ -71,17 +71,17 @@ function Search() {
       {error && <p className="mt-4 text-center text-red-600">Looks like we cant find the user</p>}
 
       <div className="mt-6 space-y-4">
-        {users.map(user => (
-          <div key={user.id} className="flex items-center space-x-4 bg-gray-50 p-4 rounded shadow-sm">
-            <img src={user.avatar_url} alt="avatar" className="w-16 h-16 rounded-full" />
+        {userData && (
+          <div className="flex items-center space-x-4 bg-gray-50 p-4 rounded shadow-sm">
+            <img src={userData.avatar_url} alt="avatar" className="w-16 h-16 rounded-full" />
             <div>
-              <h2 className="text-lg font-semibold">{user.login}</h2>
-              <a href={user.html_url} target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">
+              <h2 className="text-lg font-semibold">{userData.login}</h2>
+              <a href={userData.html_url} target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">
                 View Profile
               </a>
             </div>
           </div>
-        ))}
+        )}
       </div>
     </div>
   );

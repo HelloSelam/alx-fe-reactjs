@@ -11,6 +11,7 @@ function App() {
     <>
       <div>
         <h1>GitHub User Search</h1>
+        <h1 className="text-3xl font-bold text-purple-600">Tailwind is working!</h1>
         <Search />
         <p>Start typing to search for a GitHub user...</p>
       </div>
