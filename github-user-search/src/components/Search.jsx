@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { fetchUserData } from '../services/githubService';
 import { advancedUserSearch } from '../services/githubService';
 
 function Search() {
@@ -10,6 +11,16 @@ function Search() {
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    const handleSingleUserSearch = async () => {
+      if (!formData.username) return;
+      try {
+        const userData = await fetchUserData(formData.username);
+        setUsers([userData]);
+      } catch (error) {
+        console.error('Error fetching user:', error);
+      }
     };
 
     const handleSubmit = async (e) => {
