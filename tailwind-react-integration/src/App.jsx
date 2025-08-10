@@ -1,14 +1,11 @@
-import { useState } from 'react'
-import './App.css'
+import UserProfile from "./components/UserProfile";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <h1 className="text-4xl font-bold text-blue-600">
-      Tailwind CSS is working! 🚀
-    </h1>
-  ); 
+    <div className="min-h-screen flex items-center justify-center bg-gray-200">
+      <UserProfile />
+    </div>
+  );
 }
 
-export default App
+export default App;
