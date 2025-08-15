@@ -41,6 +41,9 @@ export default function HomePage() {
               <p className="text-gray-600">{recipe.summary}</p>
             </div>
           </Link>
+          <Link to="/add-recipe" className="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700">
+            Add New Recipe
+          </Link>
         </>
       ))}
       </div>
