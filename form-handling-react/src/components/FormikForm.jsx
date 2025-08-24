@@ -21,7 +21,6 @@ export default function FormikForm() {
   const handleSubmit = (values, { setSubmitting, resetForm }) => {
     console.log("Formik Submission:", values);
 
-    // Mock API
     fetch("https://jsonplaceholder.typicode.com/users", {
       method: "POST",
       body: JSON.stringify(values),
@@ -48,7 +47,7 @@ export default function FormikForm() {
           <Form>
             <div>
               <label>Username:</label>
-              <Field type="text" name="username" />
+              <Field type="text" name="username" value={initialValues.username} />
               <ErrorMessage
                 name="username"
                 component="div"
@@ -58,7 +57,7 @@ export default function FormikForm() {
 
             <div>
               <label>Email:</label>
-              <Field type="email" name="email" />
+              <Field type="email" name="email" value={initialValues.email} />
               <ErrorMessage
                 name="email"
                 component="div"
@@ -68,7 +67,7 @@ export default function FormikForm() {
 
             <div>
               <label>Password:</label>
-              <Field type="password" name="password" />
+              <Field type="password" name="password" value={initialValues.password} />
               <ErrorMessage
                 name="password"
                 component="div"
