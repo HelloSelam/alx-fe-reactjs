@@ -1,13 +1,18 @@
 import { Navigate } from "react-router-dom";
 
-// Fake auth simulation
-const isAuthenticated = () => {
-  return localStorage.getItem("auth") === "true";
-};
+// ✅ simple auth hook
+function useAuth() {
+  // For demo purposes, we simulate authentication with localStorage
+  const user = localStorage.getItem("user");
+  return { isAuthenticated: !!user };
+}
 
 export default function ProtectedRoute({ children }) {
-  if (!isAuthenticated()) {
-    return <Navigate to="/login" />;
+  const auth = useAuth();
+
+  if (!auth.isAuthenticated) {
+    return <Navigate to="/login" replace />;
   }
+
   return children;
 }
