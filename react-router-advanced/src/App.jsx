@@ -2,9 +2,9 @@ import { BrowserRouter as Router, Routes, Route, Link, Navigate } from "react-ro
 import Home from "./components/Home";
 import About from "./components/About";
 import Profile from "./components/Profile";
-import Post from "./components/Post";
 import Login from "./components/Login";
-import ProtectedRoute from "./components/ProtectedRoute"; // ✅ must import
+import ProtectedRoute from "./components/ProtectedRoute";
+import BlogPost from "./components/BlogPost"; // ✅ new import
 
 function App() {
   return (
@@ -13,14 +13,14 @@ function App() {
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
         <Link to="/profile">Profile</Link>
-        <Link to="/posts/1">Post #1</Link>
+        <Link to="/blog/1">Blog Post #1</Link> {/* ✅ updated link */}
         <Link to="/login">Login</Link>
       </nav>
 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        
+
         {/* Protected route */}
         <Route
           path="/profile/*"
@@ -31,9 +31,9 @@ function App() {
           }
         />
 
-        {/* Dynamic route */}
-        <Route path="/posts/:id" element={<Post />} />
-        
+        {/* ✅ Dynamic blog post route */}
+        <Route path="/blog/:id" element={<BlogPost />} />
+
         <Route path="/login" element={<Login />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
